@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Afeto</title>
+    <style>
+        body {
+            background-color: #ffccf2; /* Fundo rosa suave */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            perspective: 1000px;
+        }
+
+        .envelope {
+            width: 80vw;
+            max-width: 600px;
+            height: 80vh;
+            max-height: 500px;
+            background-color: #f2e2ff;
+            border: 2px solid #ff99cc;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            overflow: hidden;
+        }
+
+        .envelope.open .front {
+            transform: rotateY(180deg);
+        }
+
+        .envelope.open .back {
+            transform: rotateY(0deg);
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            transition: transform 0.6s;
+        }
+
+        .front {
+            background-color: #ff99cc;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            transform: rotateY(0deg);
+        }
+
+        .back {
+            background-color: white;
+            color: #ff69b4;
+            transform: rotateY(-180deg);
+            overflow-y: auto;
+            padding: 30px;
+            box-sizing: border-box;
+            text-align: left;
+            display: block;
+        }
+
+        .message {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="envelope" id="envelope" onclick="toggleLetter()">
+            <div class="front">Clique para abrir a carta</div>
+            <div class="back">
+                <p class="message">
+Prezada Bruna,
+
+Já conhecia você há muito tempo, mas somente este ano tive a oportunidade de te conhecer de verdade, poder ter tido o prazer de conhecer essa incrível e maravilhosa pessoa que você é, saiba que eu sou grato por isso.... Antes, eu te via apenas como "amiga do Raul"; hoje, te vejo como minha amiga, e eu simplesmente amo isso. Gosto de tantas coisas na nossa amizade, como a forma que você sempre se preocupa e "cuida" de mim, kkk, me proibindo de coçar o braço ou sempre me protegendo das ofensas de terceiros. Simplesmente adoro esse seu jeitinho protetor. Acho tão lindo como você se importa comigo, a ponto de me corrigir, a fim de que eu melhore.
+
+Sinceramente, não esperava que fôssemos amigos, mas hoje, naquela sala, não consigo imaginar uma realidade onde não sejamos amigos. Muito obrigado por tudo que você tem feito ou ainda fará por mim. Sei que, às vezes, você se incomoda com algumas atitudes minhas, talvez até me achando chato, mas saiba que te considero muito e sempre vou te considerar. Saiba que para sempre você terá um espaço no meu coração.
+
+Espero ter você na minha vida por muito tempo, e também espero de verdade que você consiga realizar todos os seus sonhos e vontades.
+
+Com carinho,
+Biel
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleLetter() {
+            const envelope = document.getElementById('envelope');
+            envelope.classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>
